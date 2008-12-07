@@ -1,0 +1,70 @@
+;; Object audionet/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "audionet/"
+  :tables (list 
+   (semanticdb-table "main.c"
+    :major-mode 'c-mode
+    :tags 'nil
+    :file "main.c"
+    )
+   (semanticdb-table "mod_fsk.c"
+    :major-mode 'c-mode
+    :tags '(("mod_fsk.h" include nil nil [91 111]) ("math.h" include (:system-flag t) nil [112 129]) ("modem.h" include nil nil [130 148]) ("stdlib.h" include (:system-flag t) nil [149 168]) ("BAUD" variable (:constant-flag t :default-value (nil)) nil [170 185]) ("BITSBAUD" variable (:constant-flag t :default-value (nil)) nil [186 204]) ("RATE" variable (:constant-flag t :default-value (nil)) nil [205 222]) ("TONE_DUR" variable (:constant-flag t) nil [223 301]) ("freqs" variable (:dereference 1 :default-value "{1000, 1500, 2000, 2500}" :type "int") nil [298 337]) ("freqs" variable (:dereference 1 :default-value "{ 1000, 1125, 1250, 1375,
+		1500, 1625, 1750, 1875,
+		2000, 2125, 2250, 2375,
+		2500, 2625, 2750, 2875 }" :type "int") nil [386 505]) ("fsk_modulate" function (:pointer 1 :arguments (("len" variable (:type "int") (reparse-symbol arg-sub-list) [666 674]) ("data" variable (:pointer 1 :type "char") (reparse-symbol arg-sub-list) [675 686]) ("outlen" variable (:pointer 1 :type "int") (reparse-symbol arg-sub-list) [687 699])) :type ("sample_t" type (:type "class") nil nil)) nil [643 1383]) ("fsk_modulate_symbol" function (:arguments (("twit" variable (:type "int") (reparse-symbol arg-sub-list) [1409 1418]) ("store" variable (:pointer 1 :type ("sample_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1419 1435]) ("distance" variable (:pointer 1 :type "int") (reparse-symbol arg-sub-list) [1436 1450])) :type "int") nil [1385 1728]))
+    :file "mod_fsk.c"
+    :pointmax 1730
+    )
+   (semanticdb-table "mod_qam.c"
+    :major-mode 'c-mode
+    :tags '(("mod_qam.h" include nil nil [84 104]))
+    :file "mod_qam.c"
+    :pointmax 105
+    )
+   (semanticdb-table "out-harness.c"
+    :major-mode 'c-mode
+    :tags '(("mod_fsk.h" include nil nil [110 130]) ("modem.h" include nil nil [131 149]) ("stdio.h" include (:system-flag t) nil [150 168]) ("unistd.h" include (:system-flag t) nil [169 188]) ("main" function (:arguments (("argc" variable (:type "int") (reparse-symbol arg-sub-list) [199 208]) ("argv" variable (:pointer 2 :type "char") (reparse-symbol arg-sub-list) [209 221])) :type "int") nil [190 436]))
+    :file "out-harness.c"
+    :pointmax 437
+    )
+   (semanticdb-table "synchronize.c"
+    :major-mode 'c-mode
+    :tags 'nil
+    :file "synchronize.c"
+    )
+   (semanticdb-table "mod_fsk.h"
+    :major-mode 'c-mode
+    :tags '(("MOD_FSK_H" variable (:constant-flag t) nil [19 39]) ("MOD_FSK_PROTO" variable (:constant-flag t :default-value (nil)) nil [38 61]))
+    :file "mod_fsk.h"
+    :pointmax 128
+    )
+   (semanticdb-table "mod_qam.h"
+    :major-mode 'c-mode
+    :tags '(("MOD_QAM_H" variable (:constant-flag t) nil [19 39]) ("MOD_QAM_PROTO" variable (:constant-flag t :default-value (nil)) nil [38 61]))
+    :file "mod_qam.h"
+    :pointmax 70
+    )
+   (semanticdb-table "modem.h"
+    :major-mode 'c-mode
+    :tags '(("MODEM_H" variable (:constant-flag t) nil [17 35]) ("sample_t" variable (:constant-flag t) nil [34 57]) ("sample_to_char" variable (:constant-flag t :default-value (nil)) nil [63 92]))
+    :file "modem.h"
+    :pointmax 101
+    )
+   (semanticdb-table "Makefile"
+    :major-mode 'makefile-mode
+    :tags '(("CFLAGS" variable (:default-value ("-lm" "-Wall")) nil [1 18]) ("TARGET" variable (:default-value ("out-harness")) nil [18 37]) ("OBJS" variable (:default-value ("out-harness.o" "mod_fsk.o")) nil [37 66]) ("out-harness" function (:arguments ("$(OBJS)")) nil [67 119]) ("out-harness.o" function (:arguments ("mod_fsk.h" "modem.h")) nil [119 153]) ("mod_fsk.o" function (:arguments ("mod_fsk.h")) nil [153 175]))
+    :file "Makefile"
+    :pointmax 194
+    )
+   (semanticdb-table "mod_psk.c"
+    :major-mode 'c-mode
+    :tags '(("mod_psk.h" include nil nil [90 110]) ("math.h" include (:system-flag t) nil [111 128]) ("modem.h" include nil nil [129 147]) ("stdlib.h" include (:system-flag t) nil [148 167]) ("BAUD" variable (:constant-flag t :default-value (nil)) nil [169 184]) ("BITSBAUD" variable (:constant-flag t :default-value (nil)) nil [185 203]) ("RATE" variable (:constant-flag t :default-value (nil)) nil [204 221]) ("TONE_DUR" variable (:constant-flag t) nil [222 255]) ("psk_modulate" function (:pointer 1 :arguments (("len" variable (:type "int") (reparse-symbol arg-sub-list) [421 429]) ("data" variable (:pointer 1 :type "char") (reparse-symbol arg-sub-list) [430 441]) ("outlen" variable (:pointer 1 :type "int") (reparse-symbol arg-sub-list) [442 454])) :type ("sample_t" type (:type "class") nil nil)) nil [398 1689]) ("psk_modulate_symbol" function (:arguments (("twit" variable (:type "int") (reparse-symbol arg-sub-list) [1715 1724]) ("store" variable (:pointer 1 :type ("sample_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1725 1741]) ("distance" variable (:pointer 1 :type "int") (reparse-symbol arg-sub-list) [1742 1756])) :type "int") nil [1691 2034]))
+    :file "mod_psk.c"
+    :pointmax 2036
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0pre3"
+  :semanticdb-version "2.0pre3"
+  )

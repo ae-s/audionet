@@ -1,0 +1,25 @@
+-*- outline-mode -*-
+
+* packets:
+** header (24 bits)
+*** synch (4bits, 0000 for data)
+*** from address (3bits)
+*** to address (3bits)
+*** modulation (2bits)
+*** coding (3bits)
+*** length in 2bytes (9bits)
+**** MTU is 1024 bytes
+
+SSSS FFFT
+TTMM CCCL
+LLLL LLLL
+
+** control message
+*** synch is 1111
+*** everything else the same
+**** modulation is FSK (00)
+**** coding is nothing (00)
+
+1100 = 8+4 = 12 = C
+0011 = 3
+
