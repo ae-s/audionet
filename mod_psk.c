@@ -13,7 +13,6 @@
 
 #define BAUD 50
 #define BITSBAUD 4
-#define RATE 8000
 #define TONE_DUR (RATE/BAUD)
 
 int freq = 1000

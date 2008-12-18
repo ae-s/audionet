@@ -7,13 +7,12 @@
  */
 
 #include "mod_fsk.h"
-#include <math.h>
 #include "modem.h"
+#include <math.h>
 #include <stdlib.h>
 
 #define BAUD 50
 #define BITSBAUD 4
-#define RATE 8000
 #define TONE_DUR (RATE/BAUD)
 
 #if BITSBAUD == 2

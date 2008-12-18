@@ -7,3 +7,4 @@
  */
 
 #include "mod_qam.h"
+#include "modem.h"
