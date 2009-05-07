@@ -67,7 +67,7 @@ int fsk_modulate_symbol(int twit, sample_t *store, int *distance)
 		(*distance)++;
 		*(store + *distance) = 
 			(sample_t) (127 + 32 * (
-					    cos(((float)(freq + *distance) * 2 * 3.141593 * freq)
+					    cos(((float)(freq + *distance) * 2 * M_PI * freq)
 						/ (float)RATE)));
 	}
 

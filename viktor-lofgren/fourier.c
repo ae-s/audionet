@@ -59,6 +59,7 @@ double fourier1p(double x_in[], double n, int length, double* phase_r, double* p
 	*phase_r = x_complex[0] / norm;
 	return norm / length;
 }
+
 void fourier_w(double x_in[], double x_out[], int length) {
 	int i;
 	for(i = 0; i < length; i++) {
@@ -80,8 +81,7 @@ void fourier_xpm_line(double x_in[], int length, FILE* output) {
 	int i;
 	double x_out[length];
 	fourier_w(x_in, x_out, length);
-	
-	
+
 	for(i = 0; i < length; i++) {
 		fprintf(output, "%2.2x", (unsigned char) (256 * x_out[i])); 
 	}

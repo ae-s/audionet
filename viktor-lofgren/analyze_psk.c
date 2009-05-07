@@ -98,10 +98,9 @@ int main(int argc, char* argv[]) {
 		
 		if(carrier_strength < threshold) continue;
 
-/*  -- this is pretty useful in debuging 
-		printf("C: %f (%f %f)\n",
-			carrier_strength, carrier_phase[0], carrier_phase[1]);
-*/
+/*  -- this is pretty useful in debuging */
+//		printf("C: %f (%f %f)\n",
+//			carrier_strength, carrier_phase[0], carrier_phase[1]);
 
 	/*	(A+Bi)*(C-Di) = A*C + B*D + i(-A*D + B*C) */
 		double delta_re = carrier_phase[0] * old_carrier_phase[0] + carrier_phase[1]*old_carrier_phase[1];

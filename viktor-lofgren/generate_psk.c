@@ -43,6 +43,7 @@ void generate_nextbit() {
 	car_phase += 3 * M_PI / 2.0;
 	generate(rate/bps);
 }
+
 void generate_bit(char c) {
 	car_phase += c ? M_PI / 2.0 : M_PI;
 	generate(rate/bps);
