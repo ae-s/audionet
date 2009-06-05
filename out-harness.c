@@ -6,7 +6,7 @@
  * GPL.
  */
 
-#include "mod_fsk.h"
+#include "mod_mfsk.h"
 #include "modem.h"
 #include <stdio.h>
 #include <unistd.h>
@@ -14,9 +14,10 @@
 int main(int argc, char **argv)
 {
 	int len = 0;
-//	sample_t *data = fsk_modulate(38, "Hey, this is a rather longer message?", &len);
-	sample_t *data = fsk_modulate(580, "\x05\x4A\x34", &len);
-	write( 1,
+	sample_t *data = mfsk_modulate(70, 
+"Hey, I know what we should do!  Let's get some SHOES.  Let's get some-", &len);
+//	sample_t *data = mfsk_modulate(580, "\x05\x4A\x34", &len);
+	write( 2,
 	       (void *) (data),
 	       len );
 	

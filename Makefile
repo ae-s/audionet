@@ -1,12 +1,17 @@
 CFLAGS=-lm -Wall
 TARGET=out-harness
-OBJS=out-harness.o mod_fsk.o
+OBJS=out-harness.o mod_mfsk.o
+#CC=gcc-4.1
 
 out-harness: $(OBJS)
 	gcc -o $(TARGET) $(OBJS) -lm
 
-out-harness.o: mod_fsk.h modem.h
+out-harness.o: mod_mfsk.h modem.h
 
-mod_fsk.o: mod_fsk.h
+mod_fsk.o: mod_fsk.h modem.h
 
-mod_fsk: mod_fsk.h
+mod_fsk: mod_fsk.h modem.h
+
+mod_mfsk.o: mod_mfsk.h modem.h
+
+mod_mfsk: mod_mfsk.h modem.h

@@ -7,7 +7,7 @@
 /* The sample frequency.  When I'm unlazy enough to make it grok 48kHz
  * audio, change this.
  */
-#define RATE 8000
+#define RATE 44100
 
 /* The frequency (in Hz) of the sync pulse at the beginning of each packet.
  */
