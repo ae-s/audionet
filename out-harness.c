@@ -14,7 +14,7 @@
 int main(int argc, char **argv)
 {
 	int len = 0;
-	sample_t *data = mfsk_modulate(70, 
+	sample_t *data = mfsk_modulate(400, 
 "Hey, I know what we should do!  Let's get some SHOES.  Let's get some-", &len);
 //	sample_t *data = mfsk_modulate(580, "\x05\x4A\x34", &len);
 	write( 2,

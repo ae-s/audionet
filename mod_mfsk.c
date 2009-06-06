@@ -118,5 +118,5 @@ int mfsk_encode_baud(int *tones, sample_t *position)
 		*(position++) = (int)((256 * sample) / (M_SLOTS + 1));
 	}
 
-	return M_TONE_DUR + 100;
+	return M_TONE_DUR + M_SIL_DUR;
 }
