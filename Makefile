@@ -15,3 +15,5 @@ mod_fsk: mod_fsk.h modem.h
 mod_mfsk.o: mod_mfsk.h modem.h
 
 mod_mfsk: mod_mfsk.h modem.h
+
+tun.c: mod_mfsk.h modem.h tun.h
