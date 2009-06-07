@@ -13,7 +13,7 @@
 #include <string.h>
 #include <stdio.h>
 
-
+#define M_DEBUG
 
 /* Modulate a bitstream into an audio stream (sequence of ints).
  * Return a pointer to the audio buffer, or NULL on error.
@@ -27,7 +27,7 @@ sample_t *mfsk_modulate(int len, char *data, int *outlen)
 	int i, slot;
 	sample_t *buf = malloc(buflen);
 	sample_t *position = buf;
-	
+
 	int written = 0;
 
 	if (buf == NULL)
@@ -39,10 +39,14 @@ sample_t *mfsk_modulate(int len, char *data, int *outlen)
 
 	for ( i=0; i<len; ) {
 		/* Consume M_BITS bits at a time */
+#ifdef M_DEBUG
 		printf("\nData: ");
+#endif
 		for (slot = 0; slot < M_SLOTS; slot++) {
 
+#ifdef M_DEBUG
 			printf("\n%%%hhx/%c", data[i], data[i]);
+#endif
 #if M_BITS == 2
 			tones[slot] = mfsk_choose_tone((data[i] & 0xC0) >> 6, slot, prev_tones[slot]);
 			prev_tones[slot] = tones[slot];
@@ -66,7 +70,9 @@ sample_t *mfsk_modulate(int len, char *data, int *outlen)
 			i++;
 
 #endif
+#ifdef M_DEBUG
 			printf(" %d / %d %d", slot, tones[slot-1], tones[slot]);
+#endif
 
 		}
 
@@ -74,7 +80,9 @@ sample_t *mfsk_modulate(int len, char *data, int *outlen)
 		(*outlen) += written * sizeof(sample_t);
 		position += written;
 
+#ifdef M_DEBUG
 		printf("\n\n Loop cond: i = %d, len = %d, end = %d, outlen = %d\n", i, len, ((8*len)/(M_BITSBAUD)), *outlen);
+#endif
 	}
 
 	return buf;
@@ -86,13 +94,17 @@ sample_t *mfsk_modulate(int len, char *data, int *outlen)
 
 int mfsk_choose_tone(int data, int slot, int prev_freq)
 {
-	int base = M_BASE_FREQ + (M_NO_REUSE + M_WIDTH + M_GUARD) * M_FREQ_STEP * slot;
+	float base = M_BASE_MULT + (float)(M_NO_REUSE + M_WIDTH + M_GUARD) * M_FREQ_MULT * (float)slot;
 
-	int freq = base + data * M_FREQ_STEP;
+	int freq = pow(2, base + data * M_FREQ_MULT);
+
+	printf("base: %f\n", base);
 
 	if ((freq >= prev_freq) && (prev_freq != 0)) {
 		freq += M_FREQ_STEP;
-//		printf("Skipping up\n");
+#ifdef M_DEBUG
+		printf("Skipping up\n");
+#endif
 	}
 
 	return freq;

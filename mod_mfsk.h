@@ -30,7 +30,9 @@ int mfsk_encode_baud(int *tones, sample_t *position);
 
 #define M_BASE_FREQ 200
 #define M_FREQ_STEP 60
-#define M_FREQ_MULT 1.2
+
+#define M_BASE_MULT 10
+#define M_FREQ_MULT 0.015
 
 
 #endif
