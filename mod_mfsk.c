@@ -1,4 +1,4 @@
-/* mod-fsk.c
+/* mod-mfsk.c
  *
  * Basic MFSK modulation.
  *
@@ -21,7 +21,7 @@
 
 sample_t *mfsk_modulate(int len, char *data, int *outlen)
 {
-	int buflen = sizeof(sample_t) * M_TONE_DUR * (len * 8)/M_BITSBAUD;
+	int buflen = 4 * sizeof(sample_t) * M_TONE_DUR * (len * 8.0)/M_BITSBAUD;
 	int tones[M_SLOTS];
 	int prev_tones[M_SLOTS];
 	int i, slot;
@@ -29,6 +29,8 @@ sample_t *mfsk_modulate(int len, char *data, int *outlen)
 	sample_t *position = buf;
 
 	int written = 0;
+
+	printf("samp/tone: %d, len: %d, buffer len: %d\n", M_TONE_DUR, len, buflen);
 
 	if (buf == NULL)
 		return buf;
@@ -45,7 +47,7 @@ sample_t *mfsk_modulate(int len, char *data, int *outlen)
 		for (slot = 0; slot < M_SLOTS; slot++) {
 
 #ifdef M_DEBUG
-			printf("\n%%%hhx/%c", data[i], data[i]);
+			printf("\n%%%hhx", data[i]);
 #endif
 #if M_BITS == 2
 			tones[slot] = mfsk_choose_tone((data[i] & 0xC0) >> 6, slot, prev_tones[slot]);
@@ -98,7 +100,9 @@ int mfsk_choose_tone(int data, int slot, int prev_freq)
 
 	int freq = pow(2, base + data * M_FREQ_MULT);
 
+#ifdef M_DEBUG
 	printf("base: %f\n", base);
+#endif
 
 	if ((freq >= prev_freq) && (prev_freq != 0)) {
 		freq += M_FREQ_STEP;

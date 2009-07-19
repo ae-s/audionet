@@ -1,4 +1,4 @@
-CFLAGS=-lm -Wall
+CFLAGS=-lm -Wall -ggdb3
 TARGET=out-harness
 OBJS=out-harness.o mod_mfsk.o
 #CC=gcc-4.1
